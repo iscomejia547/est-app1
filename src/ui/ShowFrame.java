@@ -8,8 +8,10 @@ package ui;
 import beans.Student;
 import model.EstModel;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -89,6 +91,11 @@ public class ShowFrame extends javax.swing.JInternalFrame {
         jPanel1.add(optcmb, gridBagConstraints);
 
         okbtn.setText("OK");
+        okbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okbtnActionPerformed(evt);
+            }
+        });
         jPanel1.add(okbtn, new java.awt.GridBagConstraints());
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
@@ -124,6 +131,32 @@ public class ShowFrame extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_formInternalFrameOpened
+
+    private void okbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okbtnActionPerformed
+        int opt=optcmb.getSelectedIndex();
+        if(opt==0){
+            JOptionPane.showMessageDialog(this, "Seleccione una opcion válida", "", JOptionPane.WARNING_MESSAGE);
+        }
+        try {
+            switch(opt){
+                case 1:{
+                    Student find=mod.byId(Integer.parseInt(searchtxt.getText()));
+                    if(find==null){
+                        JOptionPane.showMessageDialog(this, "No se ha encontrado a MCQueen :'v", "",
+                                JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                    List<Student> founds=new ArrayList<>();
+                    founds.add(find);
+                    showTable(founds);
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_okbtnActionPerformed
+
     private Object[][] toMatrix(List<Student> l){
         Object[][] table=new Object[l.size()][7];
         int i=0;
@@ -136,7 +169,7 @@ public class ShowFrame extends javax.swing.JInternalFrame {
     }
     private void showTable(List<Student> st){
         DefaultTableModel tmod= (DefaultTableModel) jTable1.getModel();
-
+        tmod.setRowCount(0);
         tmod.setDataVector(toMatrix(st), header);
         jTable1.setModel(tmod);
         jTable1.getColumnModel().getColumn(1).setPreferredWidth(150);

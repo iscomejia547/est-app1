@@ -149,6 +149,15 @@ public class EstModel {
         }
         Student x=new Student();
         long pos=8+index*STREAM_SIZE;
-        return null;
+        x.setId(raf.readInt());
+        x.setName(raf.readUTF().replace("\0", " ").trim());
+        x.setLastname(raf.readUTF().replace('\0', ' ').trim());
+        x.setCarnet(raf.readUTF().replace('\0', ' ').trim());
+        x.setCarreer(raf.readUTF().replace('\0', ' ').trim());
+        x.setCiudad(raf.readUTF().replace('\0', ' ').trim());
+        x.setAge(raf.readInt());
+        close();
+
+        return x;
     }
 }
