@@ -18,6 +18,7 @@ import java.util.List;
  */
 public class ShowFrame extends javax.swing.JInternalFrame {
     private EstModel mod;
+    private final Object[] header={"ID", "Nombres", "Apellidos", "Edad", "Carné", "Carrera", "Ciudad"};
 
     /**
      * Creates new form ShowFrame
@@ -117,15 +118,33 @@ public class ShowFrame extends javax.swing.JInternalFrame {
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         try {
             List<Student> studentList=mod.getAll();
-            DefaultTableModel tmod= (DefaultTableModel) jTable1.getModel();
-            
-        } catch (IOException e) {
+            showTable(studentList);
+        } catch (IOException | IllegalArgumentException e) {
             e.printStackTrace();
         }
 
     }//GEN-LAST:event_formInternalFrameOpened
+    private Object[][] toMatrix(List<Student> l){
+        Object[][] table=new Object[l.size()][7];
+        int i=0;
+        for (Student s:
+             l) {
+            table[i]=s.toArray();
+            i++;
+        }
+        return table;
+    }
+    private void showTable(List<Student> st){
+        DefaultTableModel tmod= (DefaultTableModel) jTable1.getModel();
 
-
+        tmod.setDataVector(toMatrix(st), header);
+        jTable1.setModel(tmod);
+        jTable1.getColumnModel().getColumn(1).setPreferredWidth(150);
+        jTable1.getColumnModel().getColumn(2).setPreferredWidth(150);
+        jTable1.getColumnModel().getColumn(4).setPreferredWidth(150);
+        jTable1.getColumnModel().getColumn(5).setPreferredWidth(150);
+        jTable1.getColumnModel().getColumn(6).setPreferredWidth(150);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
