@@ -5,7 +5,11 @@
  */
 package ui;
 
+import beans.Student;
 import model.EstModel;
+
+import javax.swing.*;
+import java.io.IOException;
 
 /**
  *
@@ -63,9 +67,19 @@ public class AddFrame extends javax.swing.JInternalFrame {
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
         addbtn.setText("Añadir");
+        addbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addbtnActionPerformed(evt);
+            }
+        });
         jPanel1.add(addbtn);
 
         savebtn.setText("Guardar y Cerrar");
+        savebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                savebtnActionPerformed(evt);
+            }
+        });
         jPanel1.add(savebtn);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
@@ -123,6 +137,12 @@ public class AddFrame extends javax.swing.JInternalFrame {
         gridBagConstraints.weightx = 0.001;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
         jPanel2.add(surnametxt, gridBagConstraints);
+
+        agetxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                agetxtKeyTyped(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -161,6 +181,59 @@ public class AddFrame extends javax.swing.JInternalFrame {
         setBounds(0, 0, 410, 308);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
+        String name=nametxt.getText();
+        String surname=surnametxt.getText();
+        int age=Integer.parseInt(agetxt.getText());
+        String Carnet=carnettxt.getText();
+        String carreer= (String) carreercmb.getSelectedItem();
+        String city= (String) citycmb.getSelectedItem();
+        Student s=new Student(0,name,surname,Carnet,carreer,city, age);
+        if(localadd(s)){
+            JOptionPane.showMessageDialog(this, "Se ha agregado correctamente", "", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(this, "No se ha podido agregar", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_addbtnActionPerformed
+
+    private void agetxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_agetxtKeyTyped
+        char key=evt.getKeyChar();
+        if(!Character.isDigit(key)){
+            evt.consume();
+            agetxt.setBorder(
+                    new javax.swing.border.LineBorder(
+                            new java.awt.Color(131, 2, 0),
+                            1, true));
+        }else{
+            agetxt.setBorder(null);
+        }
+    }//GEN-LAST:event_agetxtKeyTyped
+
+    private void savebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savebtnActionPerformed
+        String name=nametxt.getText();
+        String surname=surnametxt.getText();
+        int age=Integer.parseInt(agetxt.getText());
+        String Carnet=carnettxt.getText();
+        String carreer= (String) carreercmb.getSelectedItem();
+        String city= (String) citycmb.getSelectedItem();
+        Student s=new Student(0,name,surname,Carnet,carreer,city, age);
+        if(localadd(s)){
+            JOptionPane.showMessageDialog(this, "Se ha agregado correctamente", "", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(this, "No se ha podido agregar", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        this.dispose();
+    }//GEN-LAST:event_savebtnActionPerformed
+
+    private boolean localadd(Student s){
+        try {
+            mod.add(s);
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addbtn;

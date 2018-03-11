@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2846a02d-b89e-47ec-abe4-173114a6b59b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/beans/Student.java" afterPath="$PROJECT_DIR$/src/beans/Student.java" />
+      <change beforePath="$PROJECT_DIR$/src/ui/AddFrame.form" afterPath="$PROJECT_DIR$/src/ui/AddFrame.form" />
+      <change beforePath="$PROJECT_DIR$/src/ui/AddFrame.java" afterPath="$PROJECT_DIR$/src/ui/AddFrame.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,26 +17,54 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="NewJFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ui/NewJFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="91" column="30" lean-forward="false" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AddFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ui/AddFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="53" column="30" lean-forward="true" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
+            <state relative-caret-position="822">
+              <caret line="224" column="23" lean-forward="false" selection-start-line="224" selection-start-column="23" selection-end-line="224" selection-end-column="23" />
               <folding>
-                <element signature="e#470#471#0" expanded="true" />
-                <element signature="e#496#497#0" expanded="true" />
-                <element signature="e#536#537#0" expanded="true" />
-                <element signature="e#566#567#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#543#544#0" expanded="true" />
+                <element signature="e#569#570#0" expanded="true" />
+                <element signature="e#609#610#0" expanded="true" />
+                <element signature="e#639#640#0" expanded="true" />
+                <element signature="e#895#984#0" expanded="true" />
+                <element signature="e#2199#2200#0" expanded="true" />
+                <element signature="e#2257#2258#0" expanded="true" />
+                <element signature="e#2490#2491#0" expanded="true" />
+                <element signature="e#2549#2550#0" expanded="true" />
+                <element signature="e#5080#5238#0" expanded="true" />
+                <element signature="e#5237#5238#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewJFrame.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ui/NewJFrame.java">
+      <file leaf-file-name="EstModel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/model/EstModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="90" column="30" lean-forward="false" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
+            <state relative-caret-position="323">
+              <caret line="90" column="23" lean-forward="false" selection-start-line="90" selection-start-column="23" selection-end-line="90" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/beans/Student.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="36" lean-forward="false" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -61,8 +91,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/ui/MainFrame.form" />
-        <option value="$PROJECT_DIR$/src/ui/AddFrame.java" />
         <option value="$PROJECT_DIR$/src/ui/NewJFrame.java" />
+        <option value="$PROJECT_DIR$/src/ui/AddFrame.java" />
+        <option value="$PROJECT_DIR$/src/beans/Student.java" />
       </list>
     </option>
   </component>
@@ -104,6 +135,18 @@
               <item name="est-app1" type="b2602c69:ProjectViewProjectNode" />
               <item name="est-app1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="est-app1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="est-app1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="beans" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="est-app1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="est-app1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="est-app1" type="b2602c69:ProjectViewProjectNode" />
@@ -234,12 +277,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1520787544148</updated>
-      <workItem from="1520787547967" duration="1541000" />
+      <workItem from="1520787547967" duration="2994000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1541000" />
+    <option name="totallyTimeSpent" value="2994000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -310,28 +353,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/AddFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="53" column="30" lean-forward="true" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
-          <folding>
-            <element signature="e#470#471#0" expanded="true" />
-            <element signature="e#496#497#0" expanded="true" />
-            <element signature="e#536#537#0" expanded="true" />
-            <element signature="e#566#567#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/NewJFrame.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ui/AddFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="822">
+          <caret line="224" column="23" lean-forward="false" selection-start-line="224" selection-start-column="23" selection-end-line="224" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+            <element signature="e#569#570#0" expanded="true" />
+            <element signature="e#609#610#0" expanded="true" />
+            <element signature="e#639#640#0" expanded="true" />
+            <element signature="e#895#984#0" expanded="true" />
+            <element signature="e#2199#2200#0" expanded="true" />
+            <element signature="e#2257#2258#0" expanded="true" />
+            <element signature="e#2490#2491#0" expanded="true" />
+            <element signature="e#2549#2550#0" expanded="true" />
+            <element signature="e#5080#5238#0" expanded="true" />
+            <element signature="e#5237#5238#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ui/NewJFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
-          <caret line="90" column="30" lean-forward="false" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
+          <caret line="91" column="30" lean-forward="false" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/beans/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="36" lean-forward="false" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/students.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/EstModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="90" column="23" lean-forward="false" selection-start-line="90" selection-start-column="23" selection-end-line="90" selection-end-column="23" />
           <folding />
         </state>
       </provider>

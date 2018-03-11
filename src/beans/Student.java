@@ -4,7 +4,7 @@ public class Student {
     private int id;//peso 4b
     private String name;//nvarchar(25)+BOM 3bytes
     private String lastname;//nvarchar(25)
-    private String carnet;//formato '20xx-xxxxc' donde x:numero y c:letra; nvarchar(10)+BOM 3bytes
+    private String carnet;//formato '20xx-xxxxc' donde x:numero y c:letra; nvarchar(10)
     private String carreer;//nvarchar(15)
     private String ciudad;//nvarchar(15)
     private int age;//peso=4b
