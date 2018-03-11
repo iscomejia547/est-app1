@@ -125,7 +125,7 @@ public class EstModel {
             e.setAge(raf.readInt());
             students.add(e);
         }
-        Collections.sort(students, (Student e1, Student e2)->e1.getName().compareToIgnoreCase(e2.getName()));
+        //Collections.sort(students, (Student e1, Student e2)->e1.getName().compareToIgnoreCase(e2.getName()));
         return students;
     }
     

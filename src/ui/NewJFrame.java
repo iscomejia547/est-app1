@@ -93,7 +93,10 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_AddActionPerformed
 
     private void ShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowActionPerformed
-        // TODO add your handling code here:
+        ShowFrame frame=new ShowFrame();
+        frame.setMod(mod);
+        jDesktopPane1.add(frame, true);
+        frame.setVisible(true);
     }//GEN-LAST:event_ShowActionPerformed
 
     /**
