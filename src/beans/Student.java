@@ -6,6 +6,7 @@ public class Student {
     private String lastname;//nvarchar(25)
     private String carnet;//formato '20xx-xxxxc' donde x:numero y c:letra; nvarchar(10)
     private String carreer;//nvarchar(15)
+    private String dept;//nvarchar(15)
     private String ciudad;//nvarchar(15)
     private int age;//peso=4b
 
@@ -76,6 +77,14 @@ public class Student {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
+
+    public String getDept() {
+        return dept;
+    }
+
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
     
     
 
@@ -92,14 +101,15 @@ public class Student {
     }
     
     public Object[] toArray(){
-        Object[] fields=new Object[7];
+        Object[] fields=new Object[8];
         fields[0]=this.getId();
         fields[1]=this.getName();
         fields[2]=this.getLastname();
         fields[3]=this.getAge();
         fields[4]=this.getCarnet();
         fields[5]=this.getCarreer();
-        fields[6]=this.getCiudad();
+        fields[6]=this.getDept();
+        fields[7]=this.getCiudad();
         return fields;
     }
 }

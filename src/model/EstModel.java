@@ -13,7 +13,7 @@ public class EstModel {
     private File file;//file de acceso
     private RandomAccessFile raf;//random access file
     private String PATH;
-    private final int STREAM_SIZE=191;//el peso combinado en bytes de el registro de un objeto estudiante
+    private final int STREAM_SIZE=221;//el peso combinado en bytes de el registro de un objeto estudiante
 
     public EstModel() {
         PATH=null;
@@ -29,7 +29,7 @@ public class EstModel {
     
 
     public void open() throws IOException{
-        PATH="students.dat";
+        PATH="students2.dat";
         file=new File(PATH);
         if(!file.exists()){//si el archivo no existe
             file.createNewFile();
@@ -97,6 +97,7 @@ public class EstModel {
         raf.writeUTF(toNVARCHAR(t.getLastname(), 25));
         raf.writeUTF(toNVARCHAR(t.getCarnet(), 10));
         raf.writeUTF(toNVARCHAR(t.getCarreer(), 15));
+        raf.writeUTF(toNVARCHAR(t.getDept(),15));
         raf.writeUTF(toNVARCHAR(t.getCiudad(), 15));
         raf.writeInt(t.getAge());
 
@@ -154,6 +155,7 @@ public class EstModel {
         x.setLastname(raf.readUTF().replace('\0', ' ').trim());
         x.setCarnet(raf.readUTF().replace('\0', ' ').trim());
         x.setCarreer(raf.readUTF().replace('\0', ' ').trim());
+        x.setDept(raf.readUTF().replace('\0', ' ').trim());
         x.setCiudad(raf.readUTF().replace('\0', ' ').trim());
         x.setAge(raf.readInt());
         close();

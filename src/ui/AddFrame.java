@@ -6,10 +6,14 @@
 package ui;
 
 import beans.Student;
+import java.io.FileNotFoundException;
 import model.EstModel;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import sec.Secuencial;
 
 /**
  *
@@ -17,6 +21,9 @@ import java.io.IOException;
  */
 public class AddFrame extends javax.swing.JInternalFrame {
     private EstModel mod;
+    private Secuencial secuencial;
+    private DefaultComboBoxModel depmod;
+    private DefaultComboBoxModel munmod;
     /**
      * Creates new form AddFrame
      */
@@ -58,11 +65,30 @@ public class AddFrame extends javax.swing.JInternalFrame {
         carnettxt = new javax.swing.JTextField();
         carreercmb = new javax.swing.JComboBox<>();
         citycmb = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        deptcmb = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
         setTitle("Añadir estudiante");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
 
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
@@ -122,7 +148,7 @@ public class AddFrame extends javax.swing.JInternalFrame {
         jLabel6.setText("Ciudad");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.insets = new java.awt.Insets(5, 25, 5, 25);
         jPanel2.add(jLabel6, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -170,11 +196,42 @@ public class AddFrame extends javax.swing.JInternalFrame {
         citycmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Managua", "Tipitapa", "León", "Masaya", "Chinandega", "Matagalpa", " " }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.ipadx = 104;
         gridBagConstraints.weightx = 0.001;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
         jPanel2.add(citycmb, gridBagConstraints);
+
+        jLabel7.setText("Departamento");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel2.add(jLabel7, gridBagConstraints);
+
+        deptcmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        deptcmb.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                deptcmbItemStateChanged(evt);
+            }
+        });
+        deptcmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deptcmbActionPerformed(evt);
+            }
+        });
+        deptcmb.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                deptcmbPropertyChange(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.ipadx = 115;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel2.add(deptcmb, gridBagConstraints);
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
@@ -225,6 +282,42 @@ public class AddFrame extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_savebtnActionPerformed
 
+    private void deptcmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deptcmbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deptcmbActionPerformed
+
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        try {
+            secuencial=new Secuencial("dept.csv");
+            String[] depts=secuencial.readText().split(",");
+            String[] cop=new String[depts.length+1];
+            System.arraycopy(depts, 0, cop,1, depts.length);
+            cop[0]="Seleccione una opcion";
+            depmod=new DefaultComboBoxModel(cop);
+            munmod=new DefaultComboBoxModel(new String[0]);
+            deptcmb.setModel(depmod);
+            citycmb.setModel(munmod);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AddFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(AddFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formInternalFrameOpened
+
+    private void deptcmbPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_deptcmbPropertyChange
+        
+    }//GEN-LAST:event_deptcmbPropertyChange
+
+    private void deptcmbItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_deptcmbItemStateChanged
+        int index=deptcmb.getSelectedIndex();
+        if(index==0){
+            munmod=new DefaultComboBoxModel(new String[0]);
+            citycmb.setModel(munmod);
+            return;
+        }
+        secuencial=new Secuencial("munip.csv");
+    }//GEN-LAST:event_deptcmbItemStateChanged
+
     private boolean localadd(Student s){
         try {
             mod.add(s);
@@ -241,12 +334,14 @@ public class AddFrame extends javax.swing.JInternalFrame {
     private javax.swing.JTextField carnettxt;
     private javax.swing.JComboBox<String> carreercmb;
     private javax.swing.JComboBox<String> citycmb;
+    private javax.swing.JComboBox<String> deptcmb;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField nametxt;
