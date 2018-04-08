@@ -244,8 +244,9 @@ public class AddFrame extends javax.swing.JInternalFrame {
         int age=Integer.parseInt(agetxt.getText());
         String Carnet=carnettxt.getText();
         String carreer= (String) carreercmb.getSelectedItem();
+        String dept=(String) deptcmb.getSelectedItem();
         String city= (String) citycmb.getSelectedItem();
-        Student s=new Student(0,name,surname,Carnet,carreer,city, age);
+        Student s=new Student(0,name,surname,Carnet,carreer,city,dept, age);
         if(localadd(s)){
             JOptionPane.showMessageDialog(this, "Se ha agregado correctamente", "", JOptionPane.INFORMATION_MESSAGE);
         }else{
@@ -272,8 +273,9 @@ public class AddFrame extends javax.swing.JInternalFrame {
         int age=Integer.parseInt(agetxt.getText());
         String Carnet=carnettxt.getText();
         String carreer= (String) carreercmb.getSelectedItem();
+        String dept=(String) deptcmb.getSelectedItem();
         String city= (String) citycmb.getSelectedItem();
-        Student s=new Student(0,name,surname,Carnet,carreer,city, age);
+        Student s=new Student(0,name,surname,Carnet,carreer,city,dept, age);
         if(localadd(s)){
             JOptionPane.showMessageDialog(this, "Se ha agregado correctamente", "", JOptionPane.INFORMATION_MESSAGE);
         }else{
@@ -315,7 +317,16 @@ public class AddFrame extends javax.swing.JInternalFrame {
             citycmb.setModel(munmod);
             return;
         }
-        secuencial=new Secuencial("munip.csv");
+        try {
+            secuencial=new Secuencial("munip.csv");
+            String[] munips=secuencial.readText().split("\n");
+            String[] mun=munips[index-1].split(",");
+            munmod=new DefaultComboBoxModel(mun);
+            citycmb.setModel(munmod);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }//GEN-LAST:event_deptcmbItemStateChanged
 
     private boolean localadd(Student s){

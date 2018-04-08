@@ -5,19 +5,15 @@
  */
 package sec;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 /**
  *
  * @author Docente
  */
 public class Secuencial {
-    private FileOutputStream fos;
-    private FileInputStream fis;
+    private DataOutputStream fos;
+    private DataInputStream fis;
     private File file;
     private String filename;
 
@@ -55,8 +51,8 @@ public class Secuencial {
             throw new NullPointerException("El objeto file o"
                     + " el objeto filename son NULL");            
         }        
-        fos = new FileOutputStream(file,true);
-        fis = new FileInputStream(file);
+        fos = new DataOutputStream(new FileOutputStream(file,true));
+        fis = new DataInputStream(new FileInputStream(file));
     }
     
     public void close() throws IOException{
@@ -76,7 +72,7 @@ public class Secuencial {
     public String readText() throws IOException{
         String text = "";
         int n;
-        while((n = fis.read()) != -1){
+        while((n = fis.read()) != -1) {
             text += (char) n;
         }
         return text;

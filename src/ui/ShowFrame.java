@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class ShowFrame extends javax.swing.JInternalFrame {
     private EstModel mod;
-    private final Object[] header={"ID", "Nombres", "Apellidos", "Edad", "Carné", "Carrera", "Ciudad"};
+    private final Object[] header={"ID", "Nombres", "Apellidos", "Edad", "Carné", "Carrera","Departamento", "Ciudad"};
 
     /**
      * Creates new form ShowFrame
@@ -119,7 +119,7 @@ public class ShowFrame extends javax.swing.JInternalFrame {
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
-        setBounds(0, 0, 640, 480);
+        setBounds(0, 0, 900, 480);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
@@ -158,7 +158,7 @@ public class ShowFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_okbtnActionPerformed
 
     private Object[][] toMatrix(List<Student> l){
-        Object[][] table=new Object[l.size()][7];
+        Object[][] table=new Object[l.size()][l.get(0).toArray().length];
         int i=0;
         for (Student s:
              l) {
@@ -177,6 +177,7 @@ public class ShowFrame extends javax.swing.JInternalFrame {
         jTable1.getColumnModel().getColumn(4).setPreferredWidth(150);
         jTable1.getColumnModel().getColumn(5).setPreferredWidth(150);
         jTable1.getColumnModel().getColumn(6).setPreferredWidth(150);
+        jTable1.getColumnModel().getColumn(7).setPreferredWidth(200);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

@@ -10,7 +10,7 @@ public class Student {
     private String ciudad;//nvarchar(15)
     private int age;//peso=4b
 
-    public Student(int id, String name, String lastname, String carnet, String carreer, String ciudad, int age) {
+    public Student(int id, String name, String lastname, String carnet, String carreer, String ciudad,String dept, int age) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
@@ -18,6 +18,7 @@ public class Student {
         this.carreer = carreer;
         this.age = age;
         this.ciudad=ciudad;
+        this.dept=dept;
     }
 
     public Student() { }

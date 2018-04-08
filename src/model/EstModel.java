@@ -13,7 +13,7 @@ public class EstModel {
     private File file;//file de acceso
     private RandomAccessFile raf;//random access file
     private String PATH;
-    private final int STREAM_SIZE=221;//el peso combinado en bytes de el registro de un objeto estudiante
+    private final int STREAM_SIZE=241;//el peso combinado en bytes de el registro de un objeto estudiante
 
     public EstModel() {
         PATH=null;
@@ -98,7 +98,7 @@ public class EstModel {
         raf.writeUTF(toNVARCHAR(t.getCarnet(), 10));
         raf.writeUTF(toNVARCHAR(t.getCarreer(), 15));
         raf.writeUTF(toNVARCHAR(t.getDept(),15));
-        raf.writeUTF(toNVARCHAR(t.getCiudad(), 15));
+        raf.writeUTF(toNVARCHAR(t.getCiudad(), 25));
         raf.writeInt(t.getAge());
 
         //actualizando datos
@@ -122,6 +122,7 @@ public class EstModel {
             e.setLastname(raf.readUTF().replace('\0', ' ').trim());
             e.setCarnet(raf.readUTF());
             e.setCarreer(raf.readUTF().replace('\0', ' ' ).trim());
+            e.setDept(raf.readUTF().replace('\0',' ').trim());
             e.setCiudad(raf.readUTF().replace('\0', ' ').trim());
             e.setAge(raf.readInt());
             students.add(e);
